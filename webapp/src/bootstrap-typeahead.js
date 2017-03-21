@@ -80,14 +80,15 @@
 
             return isSupported;
         },
+        
         select: function () {
             var $selectedItem = this.$menu.find('.active');
             if($selectedItem.length) {
                 var value = $selectedItem.attr('data-value');
                 var text = this.$menu.find('.active a').text();
 
-                if (this.options.onSelect) {
-                    this.options.onSelect({
+                if (this.options.afterSelect) {
+                    this.options.afterSelect({
                         value: value,
                         text: text
                     });

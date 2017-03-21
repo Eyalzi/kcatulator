@@ -11,12 +11,12 @@ $gene = $_POST['data']; //Get Gene
 	$con = mysqli_connect($servername, $username, $password, $datasetname);
 	
 	    // Iterating through the product array
-	    $result = mysqli_query($con,"Select Distinct Reaction_Name,Reaction_String from tbl_reactions where Gene_Name ='".$gene."'"); //Select DISTINCT Gene_Name,Gene_ID From tbl_reactions         
+	    $result = mysqli_query($con,"Select Organism from tbl_reactions where Gene_Name ='".$gene."'");         
 			$ReactionArray = array();
 			$id = 0;
 			while ($row = mysqli_fetch_array($result))
 			{
-				 $ReactionArray[$id] = $row['Reaction_Name']." - ".$row['Reaction_String'];
+				 $ReactionArray[$id] = $row['Organism'];
 				 $id += 1;
 			}
 			
